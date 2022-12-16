@@ -1,6 +1,8 @@
+pool:
+  name: Default
 # Flutter build
 variables:
-  projectDirectory: 'covid_19_tracker'
+  projectDirectory: 'myapp'
 trigger:
 - main
 jobs:
