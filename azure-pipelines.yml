@@ -14,7 +14,7 @@ jobs:
         version: custom
         customVersion: 1.22.6
     
-    - task: FlutterBuild@0
+    - task: Hey24sheep.flutter.flutter-build.FlutterBuild@0
       displayName: "Build application"
       inputs:
         target: 'aab'
