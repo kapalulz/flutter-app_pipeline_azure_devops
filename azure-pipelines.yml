@@ -1,7 +1,4 @@
-pool:
-  name: Default
-  demands: SpecialSoftware # exists check for SpecialSoftware
-
+# Flutter build
 variables:
   projectDirectory: 'myapp'
 trigger:
@@ -9,4 +6,29 @@ trigger:
 jobs:
   - job: Android
     pool:
-      vmImage: 'ubuntu-latest'
+      name: Default
+    steps:
+    - task: FlutterInstall@0
+      inputs:
+        channel: 'stable'
+        version: 'latest'
+    
+    - task: FlutterBuild@0
+      inputs:
+        target: apk
+        projectDirectory: $(projectDirectory)
+  
+    - task: AndroidSigning@3
+      displayName: 'Signing and aligning APK file(s) **/*.apk'
+      inputs:
+        apkFiles: '**/*.apk'
+        apksign: true
+        apksignerKeystoreFile: key.jks
+        apksignerKeystorePassword: $(keypassword)
+        apksignerKeystoreAlias: $(key)
+        apksignerKeyPassword: $(keypassword)
+    - task: CopyFiles@2
+      inputs:
+        contents: '**/*.apk'
+        targetFolder: '$(build.artifactStagingDirectory)'
+    - task: PublishBuildArtifacts@1
