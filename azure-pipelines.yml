@@ -13,7 +13,7 @@ stages:
     displayName: Android
     steps: 
 
-    - task: FlutterInstall
+    - task: FlutterInstall@0
       displayName: "Install Flutter SDK"
       inputs:
         mode: 'auto'
