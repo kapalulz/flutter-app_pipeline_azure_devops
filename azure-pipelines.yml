@@ -18,12 +18,6 @@ jobs:
         target: apk
         projectDirectory: $(projectDirectory)
   
-    - task: AndroidSigning@3
-      displayName: 'Signing and aligning APK file(s) **/*.apk'
-      inputs:
-        apkFiles: '**/*.apk'
-        apksign: false
-
     - task: CopyFiles@2
       inputs:
         contents: '**/*.apk'
