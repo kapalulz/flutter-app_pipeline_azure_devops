@@ -14,36 +14,13 @@ jobs:
         mode: 'auto'
         channel: 'stable'
         version: 'latest'
-
-    - task: FlutterCommand@0
-      displayName: "Run Flutter diagnostics"
-      inputs:
-        projectDirectory: '.'
-        arguments: 'doctor -v'
-
     - task: FlutterBuild@0
-      displayName: "Build application"
       inputs:
-        target: 'aab'
-        projectDirectory: '$(Build.SourcesDirectory)'
-
-    - task: FlutterTest@0
-      displayName: "Run unit tests"
-      inputs:
-        generateCodeCoverageReport: true
-        projectDirectory: '$(Build.SourcesDirectory)'
-
+        target: apk
+        projectDirectory: $(projectDirectory)
+  
     - task: CopyFiles@2
-      displayName: "Copy app to staging directory"
       inputs:
-        sourceFolder: '$(Agent.BuildDirectory)'
-        contents: '**/bundle/**'
-        targetFolder: '$(Build.StagingDirectory)'
-        flattenFolders: true
-
+        contents: '**/*.apk'
+        targetFolder: '$(build.artifactStagingDirectory)'
     - task: PublishBuildArtifacts@1
-      displayName: "Publish AAB file"
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'AAB'
-        publishLocation: 'Container'
