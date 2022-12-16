@@ -2,7 +2,7 @@
 variables:
   projectDirectory: 'myapp'
 trigger:
-- master
+- main
 jobs:
   - job: Android
     pool:
