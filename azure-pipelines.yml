@@ -25,7 +25,7 @@ jobs:
       displayName: 'Signing and aligning APK file(s) **/*.apk'
       inputs:
         apkFiles: '**/*.apk'
-        apksign: false
+        apksign: true
 
     - task: CopyFiles@2
       inputs:
