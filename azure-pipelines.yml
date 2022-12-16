@@ -1,6 +1,3 @@
-pool:
-  name: Default
-# Flutter build
 variables:
   projectDirectory: 'myapp'
 trigger:
