@@ -9,7 +9,7 @@ jobs:
       name: Default
     steps:
   
-    - task: Hey24sheep.flutter.flutter-command.FlutterInstall@0
+    - task: Hey24sheep.flutter.flutter-install.FlutterInstall@0
       displayName: "Install Flutter SDK"
       inputs:
         mode: 'auto'
