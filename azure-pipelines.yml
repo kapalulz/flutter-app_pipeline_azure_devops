@@ -8,11 +8,13 @@ jobs:
     pool:
       name: Default
     steps:
-    - task: Hey24sheep.flutter.flutter-install.FlutterInstall@0 
-      displayName: 'Flutter Install'
+  
+    - task: Hey24sheep.flutter.flutter-command.FlutterInstall@0
+      displayName: "Install Flutter SDK"
       inputs:
-        version: custom
-        customVersion: 1.22.6
+        mode: 'auto'
+        channel: 'stable'
+        version: 'latest'
      
     - task: Hey24sheep.flutter.flutter-command.FlutterCommand@0
       displayName: "Run Flutter diagnostics"
