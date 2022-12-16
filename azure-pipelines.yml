@@ -12,7 +12,7 @@ jobs:
       displayName: 'Flutter Install'
       inputs:
         version: custom
-        customVersion: 'latest'
+        customVersion: 1.22.6
      
     - task: Hey24sheep.flutter-command.FlutterCommand@0
       displayName: "Run Flutter diagnostics"
@@ -21,10 +21,13 @@ jobs:
         arguments: 'doctor -v'
 
     - task: Hey24sheep.flutter.flutter-build.FlutterBuild@0
-      displayName: "Build application"
+      displayName: 'Flutter Build apk'
       inputs:
-        target: 'aab'
-        projectDirectory: '$(Build.SourcesDirectory)'
+        projectDirectory: myProject
+        debugMode: true // remove if a release build
+        buildFlavour: development
+        entryPoint: 'lib/main_dev.dart'
+        apkTargetPlatform: 'android-arm64'
 
     - task: AndroidSigning@3
       displayName: 'Signing and aligning APK file(s) **/*.apk'
