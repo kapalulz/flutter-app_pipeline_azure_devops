@@ -8,19 +8,19 @@ jobs:
     pool:
       name: Default
     steps:
-    - task: aloisdeniel.flutter.flutter-install.FlutterInstall@0 
+    - task: Hey24sheep.flutter.flutter-install.FlutterInstall@0 
       displayName: 'Flutter Install'
       inputs:
         version: custom
         customVersion: 'latest'
      
-    - task: aloisdeniel.flutter.flutter-command.FlutterCommand@0
+    - task: Hey24sheep.flutter-command.FlutterCommand@0
       displayName: "Run Flutter diagnostics"
       inputs:
         projectDirectory: '.'
         arguments: 'doctor -v'
 
-    - task: aloisdeniel.flutter.flutter-build.FlutterBuild@0
+    - task: Hey24sheep.flutter.flutter-build.FlutterBuild@0
       displayName: "Build application"
       inputs:
         target: 'aab'
