@@ -14,13 +14,11 @@ jobs:
         version: custom
         customVersion: 1.22.6
     
-    - task: Hey24sheep.flutter.flutter-build.FlutterBuild@0
-      displayName: 'Flutter Build apk'
+    - task: FlutterBuild@0
+      displayName: "Build application"
       inputs:
-       projectDirectory: '/home/kapalulz/azure/_work/4/s/'
-       buildFlavour: development
-       entryPoint: '/s/lib/main_dev.dart'
-       apkTargetPlatform: 'android-arm64'
+        target: 'aab'
+        projectDirectory: '$(Build.SourcesDirectory)'
   
     - task: AndroidSigning@3
       displayName: 'Signing and aligning APK file(s) **/*.apk'
