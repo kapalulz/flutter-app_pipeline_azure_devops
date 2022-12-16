@@ -1,3 +1,7 @@
+pool:
+  name: Default
+  demands: SpecialSoftware # exists check for SpecialSoftware
+
 variables:
   projectDirectory: 'myapp'
 trigger:
