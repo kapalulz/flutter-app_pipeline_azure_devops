@@ -1,18 +1,13 @@
+# Flutter build
+variables:
+  projectDirectory: 'myapp'
 trigger:
-  - main
-
-stages:
-- stage: AndroidStage
-  pool:
-    name: defaults
-  dependsOn: []
-  displayName: Android
-  jobs:
-
-  - job: AndroidJob
-    displayName: Android
-    steps: 
-
+- main
+jobs:
+  - job: Android
+    pool:
+      name: Default
+    steps:
     - task: FlutterInstall@0
       displayName: "Install Flutter SDK"
       inputs:
