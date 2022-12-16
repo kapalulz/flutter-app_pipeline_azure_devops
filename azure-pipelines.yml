@@ -20,7 +20,7 @@ jobs:
         projectDirectory: '.'
         arguments: 'doctor -v'
 
-    - task: FlutterBuild@0
+    - task: aloisdeniel.flutter.flutter-build.FlutterBuild@0
       displayName: "Build application"
       inputs:
         target: 'aab'
