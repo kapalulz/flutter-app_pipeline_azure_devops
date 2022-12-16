@@ -15,9 +15,13 @@ jobs:
         customVersion: 1.22.6
     
     - task: Hey24sheep.flutter.flutter-build.FlutterBuild@0
+      displayName: 'Flutter Build apk'
       inputs:
-        target: apk
-        projectDirectory: $(projectDirectory)
+       projectDirectory: myProject
+       debugMode: true // remove if a release build
+       buildFlavour: development
+       entryPoint: 'lib/main_dev.dart'
+       apkTargetPlatform: 'android-arm64'
   
     - task: AndroidSigning@3
       displayName: 'Signing and aligning APK file(s) **/*.apk'
