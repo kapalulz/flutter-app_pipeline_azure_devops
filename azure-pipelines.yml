@@ -11,8 +11,8 @@ jobs:
     - task: aloisdeniel.flutter.flutter-install.FlutterInstall@0 
       displayName: 'Flutter Install'
       inputs:
-        channel: 'stable'
-        version: 'latest'
+        version: custom
+        customVersion: 'latest'
      
     - task: aloisdeniel.flutter.flutter-command.FlutterCommand@0
       displayName: "Run Flutter diagnostics"
