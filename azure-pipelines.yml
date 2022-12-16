@@ -20,12 +20,12 @@ jobs:
         target: 'aab'
         projectDirectory: '$(Build.SourcesDirectory)'
 
-    - task: FlutterCommand@0
+    - task: Hey24sheep.flutter.flutter-command.FlutterCommand@0
       displayName: "Run Flutter diagnostics"
       inputs:
         projectDirectory: '.'
         arguments: 'doctor -v'
-        
+
     - task: AndroidSigning@3
       displayName: 'Signing and aligning APK file(s) **/*.apk'
       inputs:
