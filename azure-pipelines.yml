@@ -59,9 +59,9 @@ stages:
         ArtifactName: 'AAB'
         publishLocation: 'Container'
       
-    - task: AppCenterTest@1
+    - task: AppCenterDistribute@1
       inputs:
-        appFile: '**/*.apk'
-        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
-        prepareTests: false
-        runTests: false
+       serverEndpoint: '09dbebbcc47c6059225a410556bb0e6c7e82b37c'
+       appSlug: kapalulz 
+       appFile: '**/*.apk'
+       releaseNotesOption: 'input'
