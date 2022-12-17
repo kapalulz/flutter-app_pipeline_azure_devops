@@ -59,9 +59,13 @@ stages:
         ArtifactName: 'AAB'
         publishLocation: 'Container'
       
-    - task: AppCenterDistribute@1
+    - task: AppCenterDistribute@3
       inputs:
        serverEndpoint: 'AppCenter'
-       appSlug: myapp
+       appSlug: 'myapp'
        appFile: '**/*.apk'
+       symbolsOption: 'Android'
        releaseNotesOption: 'input'
+       releaseNotesInput: 'some comment'
+       destinationType: 'store'
+       destinationStoreId: 'Alpha'
