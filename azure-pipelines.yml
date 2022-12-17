@@ -25,7 +25,7 @@ jobs:
       displayName: 'Flutter Build apk'
       inputs:
         target: apk
-        projectDirectory: '/home/kapalulz/azure/_work/4/s'
+        projectDirectory: '$(Build.SourcesDirectory)'
         debugMode: false
 
     - task: AndroidSigning@3
