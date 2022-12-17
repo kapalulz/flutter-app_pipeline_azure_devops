@@ -8,15 +8,11 @@ jobs:
       name: Default
     steps:
   
-
     - task: JavaToolInstaller@0
       inputs:
         versionSpec: '11'
         jdkArchitectureOption: 'x64'
         jdkSourceOption: 'LocalDirectory'
-        jdkFile: '/home/kapalulz/java'
-        jdkDestinationDirectory: '/home/kapalulz/java'
-        cleanDestinationDirectory: true
         
     - task: Hey24sheep.flutter.flutter-install.FlutterInstall@0
       displayName: "Install Flutter SDK"
