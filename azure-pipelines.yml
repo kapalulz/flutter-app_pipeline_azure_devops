@@ -1,4 +1,3 @@
-# Flutter build
 variables:
   projectDirectory: 'myapp'
 trigger:
@@ -25,7 +24,7 @@ jobs:
     - task: Hey24sheep.flutter.flutter-build.FlutterBuild@0
       displayName: 'Flutter Build apk'
       inputs:
-        projectDirectory: myProject
+        projectDirectory: '/home/kapalulz/azure/_work/4/s/'
         debugMode: true // remove if a release build
         buildFlavour: development
         entryPoint: 'lib/main_dev.dart'
