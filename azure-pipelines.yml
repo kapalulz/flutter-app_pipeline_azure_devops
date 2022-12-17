@@ -58,3 +58,10 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'AAB'
         publishLocation: 'Container'
+      
+    - task: AppCenterTest@1
+      inputs:
+        appFile: '**/*.apk'
+        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+        prepareTests: false
+        runTests: false
