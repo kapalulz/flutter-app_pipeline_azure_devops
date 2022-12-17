@@ -61,7 +61,7 @@ stages:
       
     - task: AppCenterDistribute@1
       inputs:
-       serverEndpoint: '09dbebbcc47c6059225a410556bb0e6c7e82b37c'
-       appSlug: kapalulz 
+       serverEndpoint: 'AppCenter'
+       appSlug: myapp
        appFile: '**/*.apk'
        releaseNotesOption: 'input'
