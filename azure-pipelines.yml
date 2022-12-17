@@ -1,9 +1,18 @@
 trigger:
 - main
+
+
+stages:
+- stage: AndroidStage
+  pool:
+    name: Default
+  dependsOn: []
+  displayName: Android
+
+
 jobs:
-  - job: Android
-    pool:
-      name: Default
+  - job: APK
+    displayName: Android
     steps:
 
     - task: FlutterInstall@0
@@ -26,17 +35,17 @@ jobs:
         projectDirectory: '$(Build.SourcesDirectory)'
         debugMode: false
 
-    - task: AndroidSigning@3
-      displayName: 'Signing and aligning APK file(s) **/*.apk'
-      inputs:
-        apkFiles: '**/*.apk'
-        apksign: false
-       
     - task: FlutterTest@0
       displayName: "Run unit tests"
       inputs:
         generateCodeCoverageReport: true
         projectDirectory: '$(Build.SourcesDirectory)'
+
+    - task: AndroidSigning@3
+      displayName: 'Signing and aligning APK file(s) **/*.apk'
+      inputs:
+        apkFiles: '**/*.apk'
+        apksign: false       
 
     - task: CopyFiles@2
       inputs:
@@ -49,3 +58,13 @@ jobs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'AAB'
         publishLocation: 'Container'
+
+    - task: FlutterBuild@0
+      displayName: "Build application"
+      inputs:
+        target: windows
+        projectDirectory: '$(Build.SourcesDirectory)'
+
+      
+
+
