@@ -10,7 +10,7 @@ stages:
   displayName: Android
 
 
-jobs:
+  jobs:
   - job: APK
     displayName: Android
     steps:
