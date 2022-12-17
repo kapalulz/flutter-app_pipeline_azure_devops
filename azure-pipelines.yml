@@ -14,8 +14,8 @@ jobs:
        jdkArchitectureOption: 'x64'
        jdkSourceOption: 'LocalDirectory'
        jdkFile: '$(Agent.ToolsDirectory)/jdk11'
-       jdkDestinationDirectory: '/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64'
-       cleanDestinationDirectory: false
+       jdkDestinationDirectory: '/usr/lib/jvm/'
+       cleanDestinationDirectory: true
 
     - task: Hey24sheep.flutter.flutter-install.FlutterInstall@0
       displayName: "Install Flutter SDK"
