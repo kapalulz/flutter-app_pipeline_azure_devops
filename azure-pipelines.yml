@@ -8,9 +8,15 @@ jobs:
       name: Default
     steps:
     
-    - script: -sudo -i
-    - script: sudo apt install default-jre
-    - script: exit
+    - task: JavaToolInstaller@0
+      inputs:
+       versionSpec: '11'
+       jdkArchitectureOption: 'x64'
+       jdkSourceOption: 'LocalDirectory'
+       jdkFile: '/home/kapalulz/azure/'
+       jdkDestinationDirectory: '/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64'
+       cleanDestinationDirectory: true
+
     - task: Hey24sheep.flutter.flutter-install.FlutterInstall@0
       displayName: "Install Flutter SDK"
       inputs:
