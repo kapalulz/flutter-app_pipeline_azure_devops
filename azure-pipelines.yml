@@ -13,7 +13,7 @@ jobs:
        versionSpec: '11'
        jdkArchitectureOption: 'x64'
        jdkSourceOption: 'LocalDirectory'
-       jdkFile: '/home/kapalulz/azure/'
+       jdkFile: '$(Agent.ToolsDirectory)/jdk11'
        jdkDestinationDirectory: '/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64'
        cleanDestinationDirectory: true
 
