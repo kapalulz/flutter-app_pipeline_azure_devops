@@ -27,9 +27,7 @@ jobs:
         target: apk
         projectDirectory: '/home/kapalulz/azure/_work/4/s'
         debugMode: false
-        buildFlavour: development
-        entryPoint: 'lib/main.dart'
-        apkTargetPlatform: 'android-arm64'  
+
 
     - task: AndroidSigning@3
       displayName: 'Signing and aligning APK file(s) **/*.apk'
