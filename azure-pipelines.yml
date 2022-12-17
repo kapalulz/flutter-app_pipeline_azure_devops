@@ -42,4 +42,10 @@ jobs:
       inputs:
         contents: '**/*.apk'
         targetFolder: '$(build.artifactStagingDirectory)'
+       
     - task: PublishBuildArtifacts@1
+      displayName: "Publish AAB file"
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'AAB'
+        publishLocation: 'Container'
