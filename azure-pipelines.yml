@@ -1,5 +1,3 @@
-variables:
-  projectDirectory: 'myapp'
 trigger:
 - main
 jobs:
@@ -33,6 +31,12 @@ jobs:
       inputs:
         apkFiles: '**/*.apk'
         apksign: false
+       
+    - task: FlutterTest@0
+      displayName: "Run unit tests"
+      inputs:
+        generateCodeCoverageReport: true
+        projectDirectory: '$(Build.SourcesDirectory)'
 
     - task: CopyFiles@2
       inputs:
