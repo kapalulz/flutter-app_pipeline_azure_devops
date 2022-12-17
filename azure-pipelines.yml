@@ -61,11 +61,10 @@ stages:
       
     - task: AppCenterDistribute@3
       inputs:
-       serverEndpoint: 'AppCenter'
-       appSlug: 'myapp'
-       appFile: '**/*.apk'
-       symbolsOption: 'Android'
-       releaseNotesOption: 'input'
-       releaseNotesInput: 'some comment'
-       destinationType: 'store'
-       destinationStoreId: 'Alpha'
+        appSlug: 'kapalulz'
+        appFile: '**/*.apk'
+        symbolsOption: 'Android'
+        releaseNotesOption: 'input'
+        releaseNotesInput: 'test'
+        destinationType: 'groups'
+        distributionGroupId: 'Beta Tester'
