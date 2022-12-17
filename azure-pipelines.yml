@@ -22,11 +22,10 @@ jobs:
         arguments: 'doctor -v'
 
     - task: FlutterBuild@0
-      displayName: 'Flutter Build apk'
+      displayName: "Build application"
       inputs:
-        target: apk
-        projectDirectory: '/home/kapalulz/azure/_work/4/s'
-
+        target: 'aab'
+        projectDirectory: '$(Build.SourcesDirectory)'
 
     - task: AndroidSigning@3
       displayName: 'Signing and aligning APK file(s) **/*.apk'
