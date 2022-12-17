@@ -24,7 +24,7 @@ jobs:
     - task: FlutterBuild@0
       displayName: 'Flutter Build apk'
       inputs:
-        projectDirectory: '/home/kapalulz/azure/_work/4/s'
+        projectDirectory: $(projectDirectory)
         debugMode: false
         buildFlavour: development
         entryPoint: 'lib/main.dart'
