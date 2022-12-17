@@ -12,7 +12,7 @@ jobs:
       inputs:
         versionSpec: '11'
         jdkArchitectureOption: 'x64'
-        jdkSourceOption: 'LocalDirectory'
+        jdkSourceOption: 'PreInstalled'
         
     - task: Hey24sheep.flutter.flutter-install.FlutterInstall@0
       displayName: "Install Flutter SDK"
