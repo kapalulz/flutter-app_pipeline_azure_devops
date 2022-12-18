@@ -62,7 +62,7 @@ stages:
     - task: AppCenterDistribute@3
       inputs:
         serverEndpoint: 'AppCenter'
-        appSlug: 'kapalulz'
+        appSlug: 'myapp'
         appFile: 'build/app/outputs/flutter-apk/app.apk'
         symbolsOption: 'Android'
         releaseNotesOption: 'input'
