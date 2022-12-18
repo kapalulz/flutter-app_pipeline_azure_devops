@@ -68,4 +68,4 @@ stages:
         releaseNotesOption: 'input'
         releaseNotesInput: 'test'
         destinationType: 'groups'
-        distributionGroupId: 'Beta Tester'
+        distributionGroupId: 'https://install.appcenter.ms/users/kapalulz/apps/myapp/distribution_groups/beta%20tester'
