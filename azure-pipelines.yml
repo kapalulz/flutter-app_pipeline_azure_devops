@@ -66,6 +66,6 @@ stages:
         appFile: 'build/app/outputs/flutter-apk/app.apk'
         symbolsOption: 'Android'
         releaseNotesOption: 'input'
-        releaseNotesInput: 'tetst'
+        releaseNotesInput: 'test'
         destinationType: 'groups'
-        distributionGroupId: 'Beta Tester'
+        distributionGroupId: 'Collaborators'
