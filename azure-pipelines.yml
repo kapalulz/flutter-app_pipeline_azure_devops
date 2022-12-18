@@ -63,7 +63,7 @@ stages:
       inputs:
         serverEndpoint: 'AppCenter'
         appSlug: 'kapalulz'
-        appFile: 'build/app/outputs/flutter-apk/app-debug.apk/*.apk'
+        appFile: 'build/app/outputs/flutter-apk/app-debug.apk/app.apk'
         symbolsOption: 'Android'
         releaseNotesOption: 'input'
         releaseNotesInput: 'tetst'
