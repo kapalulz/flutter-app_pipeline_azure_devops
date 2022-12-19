@@ -89,11 +89,12 @@ stages:
 
     # adjust path to the *.plist file
     - task: FlutterBuild@0
-      displayName: "Build application"
+      displayName: "Flutter Build Apps - iOS"
       inputs:
-        target: ipa
-        projectDirectory: '$(Build.SourcesDirectory)'
-        exportOptionsPlist: 'ios/flutter/AppFrameworkInfo.plist'
+       target: "ios"
+       buildName: "$(Build.BuildNumber)"
+       entryPoint: "lib/main.dart"
+       iosCodesign: false
 
     - task: FlutterTest@0
       displayName: "Run unit tests"
