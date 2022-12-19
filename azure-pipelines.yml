@@ -93,7 +93,7 @@ stages:
       inputs:
         target: ipa
         projectDirectory: '$(Build.SourcesDirectory)'
-        exportOptionsPlist: 'ios/AppFrameworkInfo.plist'
+        exportOptionsPlist: 'ios/flutter/AppFrameworkInfo.plist'
 
     - task: FlutterTest@0
       displayName: "Run unit tests"
