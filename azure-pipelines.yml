@@ -69,3 +69,49 @@ stages:
         releaseNotesInput: 'test'
         destinationType: 'groups'
         distributionGroupId: 'da3b6c69-fb4d-437d-a313-57a410dbe743'
+        
+  - job: iOSJob
+    displayName: iOS
+    steps: 
+                 
+    - task: FlutterInstall@0
+      displayName: "Install Flutter SDK"
+      inputs:
+        mode: 'auto'
+        channel: 'stable'
+        version: 'latest'
+
+    - task: FlutterCommand@0
+      displayName: "Run Flutter diagnostics"
+      inputs:
+        projectDirectory: '.'
+        arguments: 'doctor -v'
+
+    # adjust path to the *.plist file
+    - task: FlutterBuild@0
+      displayName: "Build application"
+      inputs:
+        target: ipa
+        projectDirectory: '$(Build.SourcesDirectory)'
+        exportOptionsPlist: 'ios/exportOptions.plist'
+
+    - task: FlutterTest@0
+      displayName: "Run unit tests"
+      inputs:
+        generateCodeCoverageReport: true
+        projectDirectory: '$(Build.SourcesDirectory)'
+
+    - task: CopyFiles@2
+      displayName: "Copy app to staging directory"
+      inputs:
+        sourceFolder: '$(Agent.BuildDirectory)'
+        contents: '**/ipa/*.ipa'
+        targetFolder: '$(Build.StagingDirectory)'
+        flattenFolders: true
+
+    - task: PublishBuildArtifacts@1
+      displayName: "Publish IPA file"
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'IPA'
+        publishLocation: 'Container'
