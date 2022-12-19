@@ -87,13 +87,13 @@ stages:
         projectDirectory: '.'
         arguments: 'doctor -v'
 
-    # adjust path to the *.plist file
+    # adjust path to the *.plist file "lib/main.dart" 
     - task: FlutterBuild@0
       displayName: "Flutter Build Apps - iOS"
       inputs:
        target: "ios"
        buildName: "$(Build.BuildNumber)"
-       entryPoint: "lib/main.dart"
+       entryPoint: "ios/Flutter/AppFrameworkInfo.plist"
        iosCodesign: false
 
     - task: FlutterTest@0
@@ -109,6 +109,7 @@ stages:
         contents: '**/ipa/*.ipa'
         targetFolder: '$(Build.StagingDirectory)'
         flattenFolders: true
+        
 
     - task: PublishBuildArtifacts@1
       displayName: "Publish IPA file"
