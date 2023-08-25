@@ -6,3 +6,5 @@ Azure DevOps pipeline
 
 from a commit to build and upload to App Center.
 project 'simplistic_calculator'
+
+![image](https://media.discordapp.net/attachments/359470187088576514/1144669239530238064/image.png?width=1440&height=479)
